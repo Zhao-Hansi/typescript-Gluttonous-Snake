@@ -5,6 +5,7 @@ const CleanWebPackPlugin= require('webpack-clean-plugin');
 
 
 module.exports = {
+    mode: "development",
     entry: "./src/",
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -14,7 +15,24 @@ module.exports = {
     module: {
         rules: [{
             test: /\.ts$/,
-            use: 'ts-loader',
+            use: [{
+                loader: "babel-loader",
+                options: {
+                    presets:[
+                        [
+                            "@babel/preset-env",
+                            {
+                                targets: {
+                                    "chrome":"88",
+                                    "ie": "11"
+                                },
+                                "corejs":"3",
+                                "useBuiltIns": "usage",
+                            },
+                        ]
+                    ]
+                }
+            },'ts-loader'],
             exclude: /nodeModules/,
 
         }]
@@ -24,6 +42,9 @@ module.exports = {
         new HTMLWebpackPlugin({
             template: "./src/index.html"
         })
-]
+],
+    resolve: {
+        extensions: ['.ts', '.js']
+    }
 
 }

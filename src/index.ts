@@ -2,4 +2,4 @@ function sum(a : number, b :number){
     return a + b
 }
 
-console.log(sum(123, 456));
+console.log(sum(123456, 456789));
