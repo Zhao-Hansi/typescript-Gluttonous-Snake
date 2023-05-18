@@ -43,14 +43,16 @@ module.exports = {
                     {
                         loader: "postcss-loader",
                         options: {
-                            plugins:[
-                                [
-                                    "postcss-preset-env",
-                                    {
-                                        browsers:'last 2 versions'
-                                    }
+                            postcssOptions:{
+                                plugins:[
+                                    [
+                                        "postcss-preset-env",
+                                        {
+                                            browsers:'last 2 versions'
+                                        }
+                                    ]
                                 ]
-                            ]
+                            }
                         }
                     },
                     "less-loader"
