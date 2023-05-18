@@ -1,6 +1,11 @@
-class animal{
-    private _name : string
-    private _age : number
+interface animal_interface{
+    _name : string
+    _age : number
+}
+
+class animal implements animal_interface{
+     _name : string
+     _age : number
     constructor(name: string, age : number) {
         this._name = name
         this._age = age
@@ -30,7 +35,31 @@ class Dog extends animal{
     }
 }
 
+abstract class cat{
+    face : string
+    mouth : string
+    beard : number
+    constructor(face: string, mouth : string, beard: number) {
+        this.face = face
+        this.mouth = mouth
+        this.beard = beard
+
+    }
+    cat_food(food_kinds : string){
+        if (food_kinds === 'aikendi'){
+            console.log("only " + this.face + " can eat " + food_kinds)
+        }
+    }
+}
+
+class toy_cat extends cat{
+}
+let little_cat = new toy_cat("black", "little", 6)
+little_cat.cat_food("aikendi")
+
 let dog = new Dog('小黄', 3 , "he is running")
 console.log(dog.getAge());
 dog.Animal_Sounds('汪汪汪汪！')
 console.log(dog.getName());
+dog.setAge(2000)
+console.log(dog.getAge())
