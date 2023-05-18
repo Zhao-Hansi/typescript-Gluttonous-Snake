@@ -6,7 +6,7 @@ const CleanWebPackPlugin= require('webpack-clean-plugin');
 
 module.exports = {
     mode: "development",
-    entry: "./src/",
+    entry: "./src/index.ts",
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "bundle.js",
@@ -14,7 +14,7 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.ts$/,
+            test: /\.tsx?$/,
             use: [{
                 loader: "babel-loader",
                 options: {
@@ -66,7 +66,7 @@ module.exports = {
         })
 ],
     resolve: {
-        extensions: ['.ts', '.js']
+        extensions: ['.tsx', '.ts', '.js']
     }
 
 }
