@@ -36,7 +36,7 @@ class Snake{
             return;
         }
         if (value < 0 || value > 290){
-            throw new Error("This snake kit the wall, Game Over!");
+            throw new Error("This snake hit the wall, Game Over!");
         }
         if (this.bodies[1] && (this.bodies[1] as HTMLElement).offsetTop === value){
             if(value > this.get_Y()){
